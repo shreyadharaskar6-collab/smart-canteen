@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Success</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:linear-gradient(#f7c6d9,#e5c3d1);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+width:90%;
+max-width:400px;
+}
+
+/* IMAGE */
+.success-img{
+width:150px;
+display:block;
+margin:0 auto 20px auto;
+}
+
+/* CONGRATS TEXT */
+.congrats{
+font-size:36px;
+font-weight:700;
+color:#ff4da6;
+margin:0;
+}
+
+/* SUB TEXT */
+.subtext{
+font-size:22px;
+margin-top:10px;
+font-weight:600;
+}
+
+/* BUTTON COMMON */
+.btn{
+display:block;
+width:100%;
+padding:15px;
+border:none;
+border-radius:40px;
+font-size:20px;
+color:white;
+cursor:pointer;
+margin-top:30px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* TRACK BUTTON */
+.track{
+background:linear-gradient(180deg,#ff7cae,#ff2a8a);
+}
+
+/* HOME BUTTON */
+.home{
+background:linear-gradient(180deg,#ff4da6,#ff0055);
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ✅ IMAGE (CONGRATS KE UPAR) -->
+<img src="images/success.png" class="success-img">
+
+<!-- ✅ SAME LINE TEXT -->
+<div class="congrats">CONGRATULATIONS !!</div>
+
+<div class="subtext">Your order has been confirmed</div>
+
+<!-- ✅ BUTTONS -->
+<button class="btn track" onclick="goTrack()">🚚 Track Order</button>
+
+<button class="btn home" onclick="goHome()">🏠 Back to Home</button>
+
+</div>
+
+<script>
+
+function goTrack(){
+window.location="track.html";
+}
+
+function goHome(){
+window.location="menu.php";
+}
+
+</script>
+
+</body>
+</html>
