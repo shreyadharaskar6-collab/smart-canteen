@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rating</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(#f3c6d6,#e3b9c8);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+text-align:center;
+width:90%;
+max-width:400px;
+}
+
+/* ✅ IMAGE STYLE */
+img{
+width:200px;
+height:auto;
+display:block;
+margin:0 auto 20px auto;
+}
+
+/* TEXT */
+h1{
+font-size:28px;
+font-weight:700;
+margin:10px 0;
+}
+
+p{
+color:#555;
+font-size:15px;
+margin-bottom:20px;
+}
+
+/* STARS */
+.stars{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.star{
+font-size:40px;
+color:#ccc;
+cursor:pointer;
+transition:0.3s;
+}
+
+.star.active{
+color:#ffcc00;
+}
+
+#ratingText{
+margin-top:15px;
+font-weight:500;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ✅ YOUR IMAGE -->
+<img src="rating.png">
+
+<h1>Rate your experience</h1>
+
+<p>Help your caterer improve<br>their service by rating them</p>
+
+<div class="stars">
+<span class="star" onclick="rate(1)">★</span>
+<span class="star" onclick="rate(2)">★</span>
+<span class="star" onclick="rate(3)">★</span>
+<span class="star" onclick="rate(4)">★</span>
+<span class="star" onclick="rate(5)">★</span>
+</div>
+
+<div id="ratingText">Tap to rate</div>
+
+</div>
+
+<script>
+
+function rate(n){
+let stars = document.querySelectorAll(".star");
+let text = document.getElementById("ratingText");
+
+stars.forEach((star,index)=>{
+if(index < n){
+star.classList.add("active");
+}else{
+star.classList.remove("active");
+}
+});
+
+text.innerText = "You rated " + n + " / 5";
+}
+
+</script>
+
+</body>
+</html>

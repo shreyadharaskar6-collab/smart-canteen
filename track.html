@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(#f7c6d9,#e5c3d1);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* ✅ BACK BUTTON */
+.back-btn{
+position:absolute;
+top:20px;
+left:20px;
+background:white;
+padding:10px 18px;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.container{
+width:90%;
+max-width:400px;
+}
+
+.title{
+text-align:center;
+font-size:32px;
+color:#e84393;
+margin-bottom:30px;
+font-weight:600;
+}
+
+.timeline{
+position:relative;
+margin-left:30px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:20px;
+top:0;
+width:4px;
+height:100%;
+background:#e0b3c7;
+}
+
+.step{
+display:flex;
+align-items:center;
+margin-bottom:30px;
+position:relative;
+}
+
+.icon{
+width:40px;
+height:40px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:18px;
+position:absolute;
+left:-2px;
+}
+
+.pink{background:#ff4da6;}
+.yellow{background:#f4c542;}
+.green{background:#6ab04c;}
+.blue{background:#4a90e2;}
+
+.card{
+margin-left:60px;
+background:#fff;
+padding:15px;
+border-radius:15px;
+width:100%;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin:0;
+}
+
+.time{
+color:#888;
+margin-top:5px;
+}
+
+.active .card{
+border-left:5px solid #ff4da6;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ✅ BACK BUTTON -->
+<div class="back-btn" onclick="goBack()">← Back</div>
+
+<div class="container">
+
+<div class="title">Track Order</div>
+
+<div class="timeline">
+
+<div class="step active" id="step0">
+<div class="icon pink">✔</div>
+<div class="card">
+<h3>New Order</h3>
+<div class="time" id="time0">--:--</div>
+</div>
+</div>
+
+<div class="step" id="step1">
+<div class="icon yellow">👨‍🍳</div>
+<div class="card">
+<h3>Cooking</h3>
+<div class="time" id="time1">--:--</div>
+</div>
+</div>
+
+<div class="step" id="step2">
+<div class="icon green">📦</div>
+<div class="card">
+<h3>Ready</h3>
+<div class="time" id="time2">--:--</div>
+</div>
+</div>
+
+<div class="step" id="step3">
+<div class="icon blue">🛵</div>
+<div class="card">
+<h3>Picked Up</h3>
+<div class="time" id="time3">--:--</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let current = 0;
+
+function getTime(){
+let now = new Date();
+return now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+}
+
+function updateStep(){
+
+document.getElementById("time"+current).innerText = getTime();
+
+if(current > 0){
+document.getElementById("step"+(current-1)).classList.remove("active");
+}
+
+document.getElementById("step"+current).classList.add("active");
+
+if(current < 3){
+current++;
+}
+
+}
+
+updateStep();
+
+setInterval(updateStep,3000);
+
+/* ✅ BACK → RATING PAGE */
+function goBack(){
+window.location="rating.html";   // 👈 IMPORTANT
+}
+
+</script>
+
+</body>
+</html>
